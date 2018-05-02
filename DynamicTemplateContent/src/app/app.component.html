@@ -1,0 +1,19 @@
+<ng-container *ngTemplateOutlet="dynamicContext; context:getTemplateContext()">
+
+</ng-container>
+
+
+<ng-template #dynamicContext let-contextType let-details="details">
+  [{{contextType}} {{details}}]
+</ng-template>
+
+<div>
+  <app-questions [items]="questions">
+    <ng-template key="question"
+                 let-item="item">QUESTION HERE</ng-template>
+    <ng-template key="check" let-item="item">checkboxes here {{item?.type}} - {{item?.values}}</ng-template>
+    <ng-template key="radio" let-item="item">radio buttons here{{item?.type}} - {{item?.values}}</ng-template>
+    <ng-template key="bool" let-item="item">boolean here{{item?.type}} - {{item?.values}}</ng-template>
+    <ng-template key="textbox" let-item="item">textbox here{{item?.type}} - {{item?.values}}</ng-template>
+  </app-questions>
+</div>

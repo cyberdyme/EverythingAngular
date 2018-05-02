@@ -1,0 +1,7 @@
+<div *ngFor="let item of items">
+  <ng-container *ngTemplateOutlet="dict[item.type]" ngOutletContext="item">
+  </ng-container>
+
+  <ng-container *ngTemplateOutlet="dict[item.value]" ngOutletContext="item">
+  </ng-container>
+</div>
