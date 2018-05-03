@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  public ChangeWidgetType(widgetType: Type<IWidget>) {
+  public ChangeWidgetType(widgetType: Type<IWidget>, content?: string) {
     if (!widgetType) {
       console.log('Invalid widget type specified');
     }
@@ -25,10 +25,11 @@ export class AppComponent implements OnInit {
 
     this.vc.clear();
     this.vc.insert(componentRef.hostView);
+    componentRef.instance.title = content;
 
   }
 
   ngOnInit(): void {
-    this.ChangeWidgetType(WidgetButtonComponent);
+    this.ChangeWidgetType(WidgetButtonComponent, 'myButton');
   }
 }
