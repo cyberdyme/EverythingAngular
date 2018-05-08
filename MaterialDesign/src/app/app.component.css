@@ -1,24 +1,30 @@
-.sidenav-container {
-  position: absolute;
-  top: 60px;
-  bottom: 0px;
-  left: 0;
-  right: 0;
+::ng-deep .mat-toolbar{
+  z-index: 999;
+  position: fixed
+}
+::ng-deep .mat-tab-group{
+  margin-top:55px !important;
 }
 
-.sidenav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  background: rgba(255, 0, 0, 0.5);
+::ng-deep .mat-tab-header{
+  z-index: 999;
+  width:100vw;
+  position: fixed  !important;
+  background-color: red !important;
+  height: 32px;
+}
+::ng-deep .mat-tab-body-wrapper{
+  position: relative !important;
+  margin-top:55px;
 }
 
-.toolbar
+
+.mat-tab-group
 {
-  margin-top: -8px;
-  margin-left: -8px;
+  font-size: small;
+}
 
-  margin-right: -16px;
-  margin-bottom: 8px;
+div.mat-tab-label
+{
+  height: 32px;
 }
