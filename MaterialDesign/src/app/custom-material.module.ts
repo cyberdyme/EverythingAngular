@@ -5,7 +5,7 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatCardModule,
-  MatCheckboxModule
+  MatCheckboxModule, MatSidenavModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -16,6 +16,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatIconModule,
     MatCardModule,
     MatCheckboxModule,
+    MatSidenavModule,
     BrowserAnimationsModule],
   exports: [MatButtonModule,
     MatMenuModule,
@@ -23,6 +24,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatIconModule,
     MatCardModule,
     MatCheckboxModule,
+    MatSidenavModule,
     BrowserAnimationsModule],
   declarations: []
 })
