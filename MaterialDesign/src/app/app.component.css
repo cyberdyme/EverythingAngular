@@ -28,3 +28,8 @@ div.mat-tab-label
 {
   height: 32px;
 }
+
+mat-sidenav
+{
+  width: 25%;
+}
