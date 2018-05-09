@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {CustomMaterialModule} from './custom-material.module';
+import {MainToolbarComponent} from './main-toolbar.component';
+import {SidenavComponent} from './sidenav.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainToolbarComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

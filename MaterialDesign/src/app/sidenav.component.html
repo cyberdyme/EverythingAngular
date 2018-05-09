@@ -1,0 +1,30 @@
+<mat-sidenav #sidenav mode="over" class="app-sidenav" mode="push">
+  <mat-toolbar color="primary">
+    <div name="toolbar-title" class="navbar-text">
+      Websites
+    </div>
+    <span class="app-toolbar-filler"></span>
+    <mat-icon (click)="sidenav.toggle()" class="close-sidenav" color="red">
+      close
+    </mat-icon>
+  </mat-toolbar>
+
+  <button mat-raised-button color="accent" (click)="navigateToGithub()" class="sidenav-navigation-button">
+    Github
+  </button>
+  <br>
+
+  <button mat-raised-button color="accent" (click)="navigateToLinkedin()" class="sidenav-navigation-button">
+    LinkedIn
+  </button>
+  <br>
+
+  <button mat-raised-button color="accent" (click)="nagivateToResume()" class="sidenav-navigation-button">
+    Resume
+  </button>
+  <br>
+
+  <button mat-raised-button color="accent" (click)="navigateToSoundcloud()" class="sidenav-navigation-button">
+    Soundcloud
+  </button>
+</mat-sidenav>
