@@ -1,7 +1,9 @@
 <div [class.app-dark-theme]="true">
   <mat-sidenav-container fullscreen class="sidenav-container">
 
-    <app-main-toolbar (onShowSideNav)="sidenav.toggle()"></app-main-toolbar>
+    <app-main-toolbar (onShowSideNav)="sidenav.toggle()">
+      <span class="mainToolBarTitle">Profile NG1</span>
+    </app-main-toolbar>
 
     <mat-sidenav #sidenav mode="over" class="app-sidenav" mode="push">
       <app-sidenav-content></app-sidenav-content>

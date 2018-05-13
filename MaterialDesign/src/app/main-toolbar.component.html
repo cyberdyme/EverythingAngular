@@ -3,6 +3,6 @@
     <mat-icon>{{mainIcon}}</mat-icon>
   </button>
   <div class="navbar-text">
-    {{title}}
+    <ng-content select=".mainToolBarTitle"></ng-content>
   </div>
 </mat-toolbar>
