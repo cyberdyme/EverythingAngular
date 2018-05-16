@@ -10,7 +10,6 @@ import {DemoService} from './demo-service';
 export class AppComponent {
 
   constructor(private demoService: DemoService) {
-    this.getFoods();
   }
 
   getFoods() {

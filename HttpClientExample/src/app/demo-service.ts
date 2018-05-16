@@ -8,7 +8,9 @@ export class DemoService {
 
   // Uses http.get() to load data from a single API endpoint
   getFoods() {
-    return this.http.get('http://localhost:3000/api/food').subscribe(
+    return this.http.get('http://localhost:3000/api/food');
+      /*
+      .subscribe(
       res => {
         const writer = res;
         console.log(writer);
@@ -16,5 +18,6 @@ export class DemoService {
       err => {
         console.log(err);
       });
+      */
   }
 }
