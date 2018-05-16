@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "typeDictionary":[
+    {"name":"text", "category":"String"},
+    {"name":"long", "category":"Long"},
+    {"name":"decimal", "category":"Decimal"},
+    {"name":"boolean", "category":"Boolean"}
+    ],
+  "metas":[
+    {
+      "metaRuleBaseType":"client",
+      "baseKey":[
+        {
+          "name":"region",
+          "title":"Region",
+          "typeName":"String",
+          "optionality":"Optional"
+        }
+      ]
+    }
+  ]
+}
