@@ -2,4 +2,8 @@
 <div *ngFor="let food of foods">{{food}}</div>
 
 <div *ngFor="let f of (getFoods$ | async) ">{{f?.name}}</div>
+
+<h1>_food$</h1>
+
+<div *ngFor="let f of (getFoods$ | async) ">{{f?.name}}</div>
 <h1>end</h1>

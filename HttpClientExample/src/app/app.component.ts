@@ -25,6 +25,10 @@ export class AppComponent {
   private foods: IFood[];
   private  getFoods$: Observable<IFood[]>;
 
+  get food$(): Observable<IFood[]> {
+    return this.demoService.getFoods();
+  }
+
   populateFoods() {
     this.demoService.getFoods().subscribe(x => this.foods = x);
   }
