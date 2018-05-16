@@ -18,18 +18,18 @@ export interface IFood {
 export class AppComponent {
 
   constructor(private demoService: DemoService) {
-    this.getFoods();
+    this.populateFoods();
+    this.getFoods$ =  this.demoService.getFoods();
   }
 
   private foods: IFood[];
+  private  getFoods$: Observable<IFood[]>;
 
-  getFoods(): Observable<IFood> {
-    return this.demoService.getFoods().pipe(map((x: IFood)  => {
-      return x;
-    }), tap((x: IFood) => {
-        console.log(x);
-        this.foods.push(x);
-      }
-    ));
+  populateFoods() {
+    this.demoService.getFoods().subscribe(x => this.foods = x);
+  }
+
+  getFoods(): Observable<IFood[]> {
+    return this.demoService.getFoods();
   }
 }

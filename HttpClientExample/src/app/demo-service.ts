@@ -13,7 +13,13 @@ export class DemoService {
   constructor(private http: HttpClient) {}
 
   // Uses http.get() to load data from a single API endpoint
-  getFoods(): Observable<IFood> {
-    return this.http.get<IFood>('http://localhost:3000/api/food');
+  getFoods(): Observable<IFood[]> {
+    return this.http.get<IFood[]>('http://localhost:3000/api/food', httpOptions);
+  }
+
+  getFoody() {
+    this.http.get<IFood[]>('http://localhost:3000/api/food', httpOptions).subscribe(x => {
+      console.log(x);
+    });
   }
 }

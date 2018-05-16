@@ -1,3 +1,5 @@
 <h1>HttpClient Example</h1>
-<div *ngFor="let food of (getFoods() | async)">{{food?.Name}}</div>
+<div *ngFor="let food of foods">{{food}}</div>
+
+<div *ngFor="let f of (getFoods$ | async) ">{{f?.name}}</div>
 <h1>end</h1>
