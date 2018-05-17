@@ -13,6 +13,9 @@
       "category": "Decimal"
     }
   ],
+    "metas": [
+    {
+      "metaRuleBaseType": "client",
   "baseKey": [
     {
       "name": "country",
@@ -146,4 +149,7 @@
       "profileTypes": [ "nandos", "tesco", "taylorSt" ]
     }
   ]
+}
+  }
+  ]  
 }
