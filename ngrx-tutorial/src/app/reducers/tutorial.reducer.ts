@@ -1,6 +1,5 @@
-import {Action} from '@ngrx/store';
-import {Tutorial} from './../models/tutorial.model';
-import * as TutorialActions from './../actions/tutorial.actions';
+import {Tutorial} from './../models';
+import * as TutorialActions from './../actions';
 
 // Section 1
 const initialState: Tutorial = {

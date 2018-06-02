@@ -1,6 +1,6 @@
 // Section 1
 import {Action} from '@ngrx/store';
-import {Tutorial} from './../models/tutorial.model';
+import {Tutorial} from './../models';
 
 // Section 2
 export const ADD_TUTORIAL = '[TUTORIAL] Add';
