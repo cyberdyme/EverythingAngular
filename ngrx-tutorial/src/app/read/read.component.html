@@ -1,10 +1,19 @@
-<div class="right" *ngIf="tutorials">
+<div class="right" *ngIf="tutorials$">
 
   <h3>Tutorials</h3>
   <ul>
-    <li (click)="delTutorial(i)"  *ngFor="let tutorial of tutorials | async">
+    <li (click)="delTutorial(i)"  *ngFor="let tutorial of tutorials$ | async">
       <a [href]="tutorial.url" target="_blank">{{ tutorial.name }}</a>
     </li>
   </ul>
+</div>
 
+<div class="right" *ngIf="books$">
+
+  <h3>Tutorials</h3>
+  <ul>
+    <li *ngFor="let book of books$ | async">
+      {{book.id}} == {{book.title}}
+    </li>
+  </ul>
 </div>

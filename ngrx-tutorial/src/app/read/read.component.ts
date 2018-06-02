@@ -4,6 +4,7 @@ import {Tutorial} from './../models/tutorial.model';
 import {AppState} from './../app.state';
 import {Observable} from 'rxjs';
 import * as TutorialActions from './../actions/tutorial.actions';
+import {Books} from '../models';
 
 
 @Component({
@@ -12,10 +13,12 @@ import * as TutorialActions from './../actions/tutorial.actions';
 })
 export class ReadComponent implements OnInit {
 
-  tutorials: Observable<Tutorial[]>;
+  tutorials$: Observable<Tutorial[]>;
+  books$: Observable<Books[]>;
 
   constructor(private store: Store<AppState>) {
-    this.tutorials = store.select('tutorial');
+    this.tutorials$ = store.select('tutorial');
+    this.books$ = store.select('books');
   }
 
   delTutorial(index) {

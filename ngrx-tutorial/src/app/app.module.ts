@@ -8,7 +8,7 @@ import {ReadComponent} from './read/read.component';
 import {CreateComponent} from './create/create.component';
 
 
-import {reducer} from './reducers';
+import {tutorialReducer, booksReducer} from './reducers';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import {reducer} from './reducers';
   imports: [
     BrowserModule,
     StoreModule.forRoot({
-      tutorial: reducer
+      tutorial: tutorialReducer,
+      books: booksReducer
     })
   ],
   providers: [],

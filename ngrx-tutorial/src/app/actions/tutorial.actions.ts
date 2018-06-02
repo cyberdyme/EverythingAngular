@@ -22,4 +22,4 @@ export class RemoveTutorial implements Action {
 }
 
 // Section 4
-export type Actions = AddTutorial | RemoveTutorial;
+export type TutorialActions = AddTutorial | RemoveTutorial;

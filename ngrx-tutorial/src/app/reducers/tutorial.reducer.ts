@@ -1,5 +1,5 @@
 import {Tutorial} from './../models';
-import * as TutorialActions from './../actions';
+import * as Actions from './../actions';
 
 // Section 1
 const initialState: Tutorial = {
@@ -8,15 +8,15 @@ const initialState: Tutorial = {
 };
 
 // Section 2
-export function reducer(state: Tutorial[] = [initialState], action: TutorialActions.Actions) {
+export function tutorialReducer(state: Tutorial[] = [initialState], action: Actions.TutorialActions) {
 
   // Section 3
   switch (action.type) {
-    case TutorialActions.ADD_TUTORIAL:
+    case Actions.ADD_TUTORIAL:
       return [...state, action.payload];
 
     // Add this case:
-    case TutorialActions.REMOVE_TUTORIAL:
+    case Actions.REMOVE_TUTORIAL:
       state.splice(action.payload, 1);
       return state;
 
