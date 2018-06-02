@@ -1,5 +1,6 @@
 import {Tutorial} from './../models';
 import * as Actions from './../actions';
+import {createSelector} from '@ngrx/store';
 
 // Section 1
 const initialState: Tutorial = {
@@ -8,7 +9,7 @@ const initialState: Tutorial = {
 };
 
 // Section 2
-export function tutorialReducer(state: Tutorial[] = [initialState], action: Actions.TutorialActions) {
+export function tutorialsReducer(state: Tutorial[] = [initialState], action: Actions.TutorialActions) {
 
   // Section 3
   switch (action.type) {
