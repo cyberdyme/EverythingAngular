@@ -1,17 +1,13 @@
-import {Tutorial} from './../models';
 import * as Actions from './../actions';
-import {createSelector} from '@ngrx/store';
+import {TutorialState} from './appState';
 
-// Section 1
-const initialState: Tutorial = {
+
+export const initialState: TutorialState = {
   name: 'Initial Tutorial',
   url: 'http://google.com'
 };
 
-// Section 2
-export function tutorialsReducer(state: Tutorial[] = [initialState], action: Actions.TutorialActions) {
-
-  // Section 3
+export function tutorialsReducer(state: TutorialState[] = [initialState], action: Actions.TutorialActions) {
   switch (action.type) {
     case Actions.ADD_TUTORIAL:
       return [...state, action.payload];

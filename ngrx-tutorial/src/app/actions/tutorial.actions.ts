@@ -1,6 +1,6 @@
 // Section 1
 import {Action} from '@ngrx/store';
-import {Tutorial} from './../models';
+import {TutorialState} from './../reducers/appState';
 
 // Section 2
 export const ADD_TUTORIAL = '[TUTORIAL] Add';
@@ -10,7 +10,7 @@ export const REMOVE_TUTORIAL = '[TUTORIAL] Remove';
 export class AddTutorial implements Action {
   readonly type = ADD_TUTORIAL;
 
-  constructor(public payload: Tutorial) {
+  constructor(public payload: TutorialState) {
   }
 }
 

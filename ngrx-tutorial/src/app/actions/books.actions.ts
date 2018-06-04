@@ -1,13 +1,12 @@
 import {Action} from '@ngrx/store';
-import {Books} from '../models';
-
+import {BookState} from '../reducers/appState';
 
 export const LOAD_BOOKS = '[BOOKS] Load';
 
 export class LoadBooks implements Action {
   readonly type = LOAD_BOOKS;
 
-  constructor(public payload: Books) {
+  constructor(public payload: BookState) {
   }
 }
 

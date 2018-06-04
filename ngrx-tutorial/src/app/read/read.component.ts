@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 
-import {Books, Tutorial} from '../models';
-import {AppState} from '../reducers';
+import {BookState, TutorialState, AppState} from '../reducers/appState';
 import {RemoveTutorial} from '../actions';
 
 @Component({
@@ -12,8 +11,8 @@ import {RemoveTutorial} from '../actions';
 })
 export class ReadComponent implements OnInit {
 
-  tutorials$: Observable<Tutorial[]>;
-  books$: Observable<Books[]>;
+  tutorials$: Observable<TutorialState[]>;
+  books$: Observable<BookState[]>;
 
   constructor(private store: Store<AppState>) {
     this.tutorials$ = store.select(state => state.tutorial);

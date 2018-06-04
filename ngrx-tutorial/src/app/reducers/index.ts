@@ -1,19 +1,18 @@
-import {ActionReducerMap, State} from '@ngrx/store';
+import {ActionReducerMap, createFeatureSelector, createSelector} from '@ngrx/store';
+import * as fromTutorial from './tutorial.reducer';
+import * as fromBook from './books.reducer';
+import {AppState} from './appState';
 
-export * from './tutorial.reducer';
-export * from './books.reducer';
 
-import {Tutorial, Books} from './../models';
-import {booksReducer} from './books.reducer';
-import {tutorialsReducer} from './tutorial.reducer';
-
-export interface AppState {
-  readonly tutorial: Tutorial[];
-  readonly books: Books[];
+export const reducers: ActionReducerMap<AppState> = {
+  tutorial: fromTutorial.tutorialsReducer,
+  books: fromBook.booksReducer
 }
+;
 
 
-export const reducers = {
-  tutorial: tutorialsReducer,
-  books: booksReducer,
-};
+export const getTutorialsState = createFeatureSelector<AppState>('tutorial');
+
+/*
+export const getTutorials = createSelector(getTutorialsState, (state: fromTutorial.TutorialState) => state.name);
+*/

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import * as TutorialActions from './../actions/tutorial.actions';
-import {AppState} from '../reducers';
+import {AppState} from '../reducers/appState';
 
 @Component({
   selector: 'app-create',
