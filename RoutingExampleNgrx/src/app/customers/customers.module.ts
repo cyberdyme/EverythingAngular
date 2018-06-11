@@ -12,7 +12,7 @@ import { CustomersEffects } from './customers.effects';
   imports: [
     CommonModule,
     CustomersRoutingModule,
-    StoreModule.forFeature('customers', fromCustomers.reducer),
+    StoreModule.forFeature('customerReducer', fromCustomers.customerReducer),
  /*   EffectsModule.forFeature([CustomersEffects])*/
   ],
   declarations: [CustomerListComponent]

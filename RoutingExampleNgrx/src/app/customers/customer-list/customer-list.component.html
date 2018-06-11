@@ -4,7 +4,7 @@
 
 
 
-<ng-container>
-  {{(customer$ | async)?.name}}
+<ng-container *ngIf="(customer$ | async) as customer">
+  {{customer?.name}}| {{customer?.age}}
 </ng-container>
 

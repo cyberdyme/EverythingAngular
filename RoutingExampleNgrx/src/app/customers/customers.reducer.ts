@@ -5,14 +5,14 @@ import {CustomerModel} from './customers.model';
 
 
 export interface CustomerState extends AppState {
-  customer: CustomerModel;
+  customerReducer: CustomerModel;
 }
 
 export const initialState: CustomerState = {
-  customer: {name: 'test', age: 99 }
+  customerReducer: {name: 'test', age: 99 }
 };
 
-export function reducer(state: CustomerState = initialState, action: CustomersActions): CustomerState {
+export function customerReducer(state: CustomerState = initialState, action: CustomersActions): CustomerState {
   switch (action.type) {
     case CustomersActionTypes.LoadCustomers:
       console.log('reducing ' + action.payload.name)
@@ -23,5 +23,5 @@ export function reducer(state: CustomerState = initialState, action: CustomersAc
   }
 }
 
-export const getCustomerState = (state: CustomerState) => state.customer;
+export const getCustomerState = (state: CustomerState) => state.customerReducer;
 export const customerNames = createSelector(getCustomerState, (x: CustomerModel)  => x.name);
