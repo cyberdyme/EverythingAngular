@@ -1,9 +1,18 @@
 <div class="mat-elevation-z8">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
   <mat-table  #table [dataSource]="dataSource" matSort aria-label="Elements">
 
     <ng-container *ngFor="let column of dynamicColumns" [matColumnDef]="column.columnDef">
-      <mat-header-cell *matHeaderCellDef>{{ column.header }}</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</mat-header-cell>
       <mat-cell *matCellDef="let row">{{ column.cell(row) }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cost">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Cost</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{cost}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -13,7 +22,7 @@
   <mat-paginator #paginator
     [length]="dataSource.data.length"
     [pageIndex]="0"
-    [pageSize]="50"
-    [pageSizeOptions]="[25, 50, 100, 250]">
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 50, 100, 250]">
   </mat-paginator>
 </div>
