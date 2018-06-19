@@ -1,0 +1,9 @@
+<p>
+  search works!
+</p>
+
+
+
+<ng-container *ngIf="(search$ | async) as search">
+  {{search?.name}}| {{search?.age}}
+</ng-container>
