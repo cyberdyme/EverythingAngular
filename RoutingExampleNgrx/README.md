@@ -45,7 +45,10 @@ __from within customer directory__
 
 ng generate feature customers --module app/customers/customers.module.ts --dry-run
 
+__within orders directory__
+ng generate feature orders --module orders.module.ts --dry-run
 
 
 
-
+https://medium.com/ngrx/introducing-ngrx-entity-598176456e15
+https://github.com/ngrx/platform/tree/master/example-app/app
