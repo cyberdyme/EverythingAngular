@@ -1,28 +1,30 @@
-import {Action, createSelector} from '@ngrx/store';
-import { SearchActions, SearchActionTypes } from '../actions/search.actions';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
+import {SearchActions, SearchActionTypes } from '../actions/search.actions';
+import {defaultSearchState, SearchState} from '../state/search.state';
+import {createEntityAdapter} from '@ngrx/entity';
 import {SearchModel} from '../search.model';
 
-export interface SearchState {
-  searchReducer: SearchModel;
-}
-
-export const initialState: SearchState = {
-  searchReducer: {name: 'test', age: 99 }
-};
+export const searchStateAdapter = createEntityAdapter<SearchModel>();
+export const initialState: SearchState = searchStateAdapter.getInitialState(defaultSearchState);
 
 export function reducer(state = initialState, action: SearchActions): SearchState {
   switch (action.type) {
 
-    case SearchActionTypes.LoadSearchs:
-      console.log('reducing ' + action.payload.name)
+    case SearchActionTypes.LoadedSearchItem:
       return Object.assign({}, state, action.payload);
-
 
     default:
       return state;
   }
 }
 
-export const getSearchState = (state: SearchState) => state.searchReducer;
-export const searchNames = createSelector(getSearchState, (x: SearchModel)  => x.name);
+export const getSearchState = createFeatureSelector<SearchState>('searchModels');
+/* export const getAllSearchItems = createSelector(SearchState, (x: SearchState) => x.entities.select(y => y.valueOf()));
+*/
 
+export const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal,
+} = searchStateAdapter.getSelectors(getSearchState);

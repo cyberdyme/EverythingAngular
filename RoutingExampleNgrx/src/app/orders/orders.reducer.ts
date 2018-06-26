@@ -3,7 +3,6 @@ import {createEntityAdapter} from '@ngrx/entity';
 import {Order} from './orders.model';
 import {createFeatureSelector, createSelector} from '@ngrx/store';
 import {defaultOrders, OrdersState} from './orders.state';
-import {map} from 'rxjs/internal/operators';
 
 export const orderAdapter = createEntityAdapter<Order>();
 export const initialState: OrdersState = orderAdapter.getInitialState(defaultOrders);

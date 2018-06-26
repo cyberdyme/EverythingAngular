@@ -55,3 +55,12 @@ ng config cli.defaultCollection @ngrx/schematics
 __from within customer directory__
 
 ng generate feature customers --module app/customers/customers.module.ts --dry-run
+
+
+================================
+
+
+https://shermandigital.com/blog/in-memory-web-api-for-testing-angular-apps/
+https://www.npmjs.com/package/angular-in-memory-web-api
+
+npm install --save-dev angular-in-memory-web-api

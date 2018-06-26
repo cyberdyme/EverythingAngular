@@ -2,14 +2,23 @@ import { Action } from '@ngrx/store';
 import {SearchModel} from '../search.model';
 
 export enum SearchActionTypes {
-  LoadSearchs = '[Search] Load Searchs'
+  LoadingSearchItems = '[Search] Loading Search Items',
+  LoadedSearchItem = '[Search] Loaded Search Item'
 }
 
-export class LoadSearchs implements Action {
-  readonly type = SearchActionTypes.LoadSearchs;
+
+export class LoadingSearchItems implements Action {
+  readonly type = SearchActionTypes.LoadingSearchItems;
+  constructor(public payload: SearchModel) {
+  }
+}
+
+
+export class LoadedSearchItem implements Action {
+  readonly type = SearchActionTypes.LoadedSearchItem;
 
   constructor(public payload: SearchModel) {
   }
 }
 
-export type SearchActions = LoadSearchs;
+export type SearchActions = LoadingSearchItems | LoadedSearchItem;

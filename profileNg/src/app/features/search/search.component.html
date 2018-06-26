@@ -4,6 +4,6 @@
 
 
 
-<ng-container *ngIf="(search$ | async) as search">
-  {{search?.name}}| {{search?.age}}
+<ng-container *ngFor="let search of (search$ | async)">
+  {{search?.version}}| {{search?.baseKey?.region}}
 </ng-container>

@@ -11,7 +11,7 @@ import * as fromSearch from './reducers/search.reducer';
   imports: [
     CommonModule,
     SearchRoutingModule,
-    StoreModule.forFeature('searchReducer', fromSearch.reducer),
+    StoreModule.forFeature('searchModels', fromSearch.reducer),
   ],
   declarations: [SearchComponent]
 })
