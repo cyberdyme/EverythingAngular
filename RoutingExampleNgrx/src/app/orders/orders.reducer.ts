@@ -1,14 +1,14 @@
 import {OrdersActions, OrdersActionTypes} from './orders.actions';
-import {createEntityAdapter, EntityState} from '@ngrx/entity';
-import {Orders} from './orders.model';
+import {createEntityAdapter} from '@ngrx/entity';
+import {Order} from './orders.model';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
+import {defaultOrders, OrdersState} from './orders.state';
+import {map} from 'rxjs/internal/operators';
 
-export interface OrderState extends EntityState<Orders> {
-}
+export const orderAdapter = createEntityAdapter<Order>();
+export const initialState: OrdersState = orderAdapter.getInitialState(defaultOrders);
 
-export const orderAdapter = createEntityAdapter<Orders>();
-export const initialState: OrderState = orderAdapter.getInitialState();
-
-export function reducer(state = initialState, action: OrdersActions): OrderState {
+export function reducer(state = initialState, action: OrdersActions): OrdersState {
   switch (action.type) {
     case OrdersActionTypes.ADD_ONE:
       return orderAdapter.addOne(action.order, state);
@@ -26,9 +26,13 @@ export function reducer(state = initialState, action: OrdersActions): OrderState
   }
 }
 
+
+export const getOrdersState = createFeatureSelector<OrdersState>('orders');
+export const getAllOrders = createSelector(getOrdersState, (x: OrdersState) => x.entities.select(y => y.valueOf()));
+
 export const {
   selectIds,
   selectEntities,
   selectAll,
   selectTotal,
-} = orderAdapter.getSelectors();
+} = orderAdapter.getSelectors(getOrdersState);

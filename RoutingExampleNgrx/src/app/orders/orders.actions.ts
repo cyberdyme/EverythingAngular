@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Orders } from './orders.model';
+import { Order } from './orders.model';
 
 export enum OrdersActionTypes {
   ADD_ONE = '[Order] Add One',
@@ -9,13 +9,13 @@ export enum OrdersActionTypes {
 }
 export class AddOne implements Action {
   readonly type = OrdersActionTypes.ADD_ONE;
-  constructor(public order: Orders) { }
+  constructor(public order: Order) { }
 }
 export class UpdateOne implements Action {
   readonly type = OrdersActionTypes.UPDATE_ONE;
   constructor(
     public id: string,
-    public changes: Partial<Orders>,
+    public changes: Partial<Order>,
   ) { }
 }
 export class DeleteOne implements Action {
@@ -24,7 +24,7 @@ export class DeleteOne implements Action {
 }
 export class GetAll implements Action {
   readonly type = OrdersActionTypes.GET_ALL;
-  constructor(public orders: Orders[]) { }
+  constructor(public orders: Order[]) { }
 }
 
 export type OrdersActions

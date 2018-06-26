@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {OrderState, selectAll} from '../orders.reducer';
+import {select, Store} from '@ngrx/store';
+import {getAllOrders, selectAll, selectTotal} from '../orders.reducer';
 import {Observable} from 'rxjs';
-import {Orders} from '../orders.model';
 import {AddOne} from '../orders.actions';
+import {OrdersState} from '../orders.state';
+import {Order} from '../orders.model';
 
 
 @Component({
@@ -12,10 +13,12 @@ import {AddOne} from '../orders.actions';
   styleUrls: ['./orders-list.component.css']
 })
 export class OrdersListComponent implements OnInit {
-  order$: Observable<Orders[]>;
+  order$: Observable<Order[]>;
+  count$: Observable<number>;
 
-  constructor(private store: Store<OrderState>) {
-    this.order$ = this.store.pipe(selectAll);
+  constructor(private store: Store<OrdersState>) {
+    this.order$ = this.store.pipe(select(selectAll));
+    this.count$ = this.store.pipe(select(selectTotal));
 
     this.store.dispatch(new AddOne({id: 'girish', title: 'TITLE'}));
     this.store.dispatch(new AddOne({id: 'girish', title: 'TITLE'}));

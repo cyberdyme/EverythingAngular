@@ -3,6 +3,11 @@
 </p>
 
 
-<ng-container *ngIf="(order$ | async) as order">
+<ng-container *ngIf="(count$ | async) as orderCount">
+  count = {{orderCount}}
+</ng-container>
+
+
+<ng-container *ngFor="let order of (order$ | async)">
   {{order?.id}}| {{order?.title}}
 </ng-container>
