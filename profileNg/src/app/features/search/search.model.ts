@@ -10,6 +10,6 @@ export interface SearchModel {
 
   lastUpdatedTime: string;
   lastUpdatedBy: string;
-  reviewBy: string;
+  reviewedBy: string;
   reviewedTime: string;
 }
