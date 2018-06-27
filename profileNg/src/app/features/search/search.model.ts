@@ -8,8 +8,8 @@ export interface SearchModel {
     modelGroup: string;
   };
 
-  lastUpdateTime: string;
-  lastUpdateBy: string;
+  lastUpdatedTime: string;
+  lastUpdatedBy: string;
   reviewBy: string;
   reviewedTime: string;
 }
