@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {SearchModel} from './search.model';
 import {LoadingSearchItems} from './actions/search.actions';
 import {SearchState} from './state/search.state';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-search',
@@ -14,10 +15,13 @@ import {SearchState} from './state/search.state';
 export class SearchComponent implements OnInit {
   search$: Observable<SearchModel[]>;
 
-  constructor(private store: Store<SearchState>) { }
+  constructor(private store: Store<SearchState>) {
+  }
 
   ngOnInit() {
     this.search$ = this.store.pipe(select(selectAll));
+
+    this.store.dispatch(new LoadingSearchItems());
 
     //this.store.dispatch(new LoadingSearchItems({name: 'girish', age: 46}));
     //this.store.dispatch(new LoadingSearchItems({name: 'monisha', age: 46}));

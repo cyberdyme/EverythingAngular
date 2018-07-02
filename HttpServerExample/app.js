@@ -34,9 +34,46 @@ var movies = [
     { "title": "Batman Begins" }
 ];
 
+const searchModel  = [
+    {
+        id: '22',
+        version: 3,
+        baseKey: {
+            region: 'testRegion1',
+            undRegionGroup: 'region1',
+            swapGroup: 'testSwapGroup1',
+            modelGroup: 'modelGroup1'
+        },
+        lastUpdatedTime: '2018-04-04T10:04:46.295',
+        lastUpdatedBy: 'anyOne1',
+        reviewedBy: 'anyOne1',
+        reviewedTime: '2018-04-04T10:04:46.31'
+    },
+    {
+        id: '85',
+        version: 2,
+        baseKey: {
+            region: 'testRegion2',
+            undRegionGroup: 'region2',
+            swapGroup: 'testSwapGroup2',
+            modelGroup: 'modelGroup2'
+        },
+        lastUpdatedTime: '2018-05-21T12:05:55.526',
+        lastUpdatedBy: 'anyOne2',
+        reviewedBy: 'anyOne2',
+        reviewedTime: '2018-05-21T12:05:55.528'
+    }
+];
+
+
 // the "index" route, which serves the Angular app
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname,'/dist/index.html'))
+});
+
+
+app.get('/api/searchModel', function (req, res) {
+    res.send(searchModel);
 });
 
 // the GET "books" API endpoint
