@@ -46,3 +46,7 @@ ng generate @ngrx/schematics:effect App --root --module app.module.ts
 
 ng g c searchProfiles  --module app.module.ts  
 ng g c searchMasterDefaults  --module app.module.ts  
+
+
+ng generate feature search-profiles/searchProfiles --group --dry-run
+ng generate feature search-master-defaults/searchMasterDefaults  --group --dry-run
