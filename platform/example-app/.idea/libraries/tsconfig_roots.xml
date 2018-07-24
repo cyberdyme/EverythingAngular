@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="tsconfig$roots" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/../modules/effects" />
+        <item url="file://$PROJECT_DIR$/../modules/entity" />
+        <item url="file://$PROJECT_DIR$/../modules/router-store" />
+        <item url="file://$PROJECT_DIR$/../modules/schematics" />
+        <item url="file://$PROJECT_DIR$/../modules/store" />
+        <item url="file://$PROJECT_DIR$/../modules/store-devtools" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../modules/effects" />
+      <root url="file://$PROJECT_DIR$/../modules/entity" />
+      <root url="file://$PROJECT_DIR$/../modules/router-store" />
+      <root url="file://$PROJECT_DIR$/../modules/schematics" />
+      <root url="file://$PROJECT_DIR$/../modules/store" />
+      <root url="file://$PROJECT_DIR$/../modules/store-devtools" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
