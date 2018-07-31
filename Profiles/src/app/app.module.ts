@@ -8,11 +8,11 @@ import {MaterialDesignModule} from './material-design.module';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { SearchProfilesComponent } from './search-profiles/search-profiles.component';
 import { SearchMasterDefaultsComponent } from './search-master-defaults/search-master-defaults.component';
+import {environment} from '../environments/environment.prod';
 
 @NgModule({
   declarations: [
