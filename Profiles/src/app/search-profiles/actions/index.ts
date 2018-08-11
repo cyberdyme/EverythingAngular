@@ -1,16 +1,41 @@
 import { Action } from '@ngrx/store';
+import {Profile} from '../models/profiles';
 
-export enum SearchProfilesActionTypes {
-  SearchProfilesIsShown = '[Search Profiles] Is Shown',
-  SearchProfilesIsHidden = '[Search Profiles] Is Hidden',
+
+export enum SearchActionTypes {
+  IsShown = '[Search Profiles] Is Shown',
+  IsHidden = '[Search Profiles] Is Hidden',
+  Loading = '[Search Profiles] Loading',
+  Loaded = '[Search Profiles] Loaded',
+  LoadFailed = '[Search Profiles] Load Failed'
 }
 
-export class ShowSearchProfiles implements Action {
-  readonly type = SearchProfilesActionTypes.SearchProfilesIsShown;
+export class Show implements Action {
+  readonly type = SearchActionTypes.IsShown;
 }
 
-export class HideSearchProfiles implements Action {
-  readonly type = SearchProfilesActionTypes.SearchProfilesIsHidden;
+export class Hide implements Action {
+  readonly type = SearchActionTypes.IsHidden;
 }
 
-export type SearchProfilesActionsUnion = ShowSearchProfiles | HideSearchProfiles;
+export class Loading implements Action {
+  readonly type = SearchActionTypes.Loading;
+}
+
+export class Loaded implements Action {
+  readonly type = SearchActionTypes.Loaded;
+
+  constructor(public payload: Profile[]) {
+  }
+}
+
+export class LoadFailed implements Action {
+  readonly type = SearchActionTypes.LoadFailed;
+
+  constructor(public payload: Profile) {
+
+  }
+}
+
+export type SearchActionsUnion = Show | Hide | Loading | Loaded | LoadFailed;
+

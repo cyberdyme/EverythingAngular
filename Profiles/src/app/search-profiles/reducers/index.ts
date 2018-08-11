@@ -1,27 +1,59 @@
-import {SearchProfilesActionTypes, SearchProfilesActionsUnion} from '../actions';
+import {createEntityAdapter, EntityAdapter, EntityState} from '@ngrx/entity';
+import {SearchActionsUnion, SearchActionTypes} from '../../search-profiles/actions';
+import {Profile} from '../models/profiles';
 
-export interface State {
+export interface State extends EntityState<Profile> {
+  selectedDefaultId: string | null;
   isShown: boolean;
+  title: string;
+  isLoading: boolean;
 }
 
-const initialState: State = {
+export const adapter: EntityAdapter<Profile> =
+  createEntityAdapter<Profile>({
+    selectId: (defaults: Profile) => defaults.id,
+    sortComparer: false
+  });
+
+const initialState: State = adapter.getInitialState({
+  selectedDefaultId: null,
   isShown: true,
-}
+  title: 'Global Defaults',
+  isLoading: false
+});
 
-export function reducer(state: State = initialState, action: SearchProfilesActionsUnion): State {
+export function reducer(
+  state: State = initialState,
+  action: SearchActionsUnion
+): State {
   switch (action.type) {
-    case SearchProfilesActionTypes.SearchProfilesIsShown:
+    case SearchActionTypes.IsShown:
       return {
+        ...state,
         isShown: true,
+        title: 'showing'
       };
-    case SearchProfilesActionTypes.SearchProfilesIsHidden:
+    case SearchActionTypes.IsHidden:
       return {
+        ...state,
         isShown: false,
+        title: 'hiding'
       };
-
+    case SearchActionTypes.Loading:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case SearchActionTypes.Loaded:
+      return adapter.addMany(action.payload, {
+        ...state,
+        isShown: false,
+        title: 'hiding'
+      });
     default:
       return state;
   }
 }
 
+export const getSearchProfiles = (state: State) => state;
 export const getSearchProfilesIsShown = (state: State) => state.isShown;

@@ -16,7 +16,7 @@ export const reducers: ActionReducerMap<State> = {
 
 // console.log all actions
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
-  return function(state: State, action: any): State {
+  return function (state: State, action: any): State {
     console.log('state', state);
     console.log('action', action);
     return reducer(state, action);
@@ -28,17 +28,41 @@ export const metaReducers: MetaReducer<State>[] = !environment.production
   : [];
 
 
-export const getSearchMasterDefaultsState = createFeatureSelector<fromSearchMasterDefaults.State>(
-  'searchMasterDefaults',
-);
+export const getSearchMasterDefaultsState =
+  createFeatureSelector<fromSearchMasterDefaults.State>(
+    'searchMasterDefaults',
+  );
 
-export const getSearchProfilesState = createFeatureSelector<fromSearchProfiles.State>(
-  'searchProfiles'
+export const getSearchMasterDefaults = createSelector(
+  getSearchMasterDefaultsState,
+  fromSearchMasterDefaults.getSearchMasterDefaults
 );
 
 export const getSearchMasterDefaultsIsShown = createSelector(
   getSearchMasterDefaultsState,
   fromSearchMasterDefaults.getSearchMasterDefaultsIsShown
+);
+
+
+export const getSearchMasterDefaultsEntitiesState = createSelector(
+  getSearchMasterDefaultsState,
+  state => state.entities
+);
+
+
+export const getSearchProfilesState =
+  createFeatureSelector<fromSearchProfiles.State>(
+    'searchProfiles'
+  );
+
+export const getSearchProfiles = createSelector(
+  getSearchProfilesState,
+  fromSearchProfiles.getSearchProfiles
+);
+
+export const getSearchProfilesEntitiesState = createSelector(
+  getSearchProfilesState,
+  state => state.entities
 );
 
 export const getSearchProfilesIsShown = createSelector(

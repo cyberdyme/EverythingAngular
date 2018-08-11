@@ -13,12 +13,17 @@ import { AppEffects } from './app.effects';
 import { SearchProfilesComponent } from './search-profiles/search-profiles.component';
 import { SearchMasterDefaultsComponent } from './search-master-defaults/search-master-defaults.component';
 import {environment} from '../environments/environment.prod';
+import {MapToIterable} from './mapToIterable';
+import {MasterDefaultsService} from './master-defaults-service';
+import {ProfilesService} from './profiles-service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchProfilesComponent,
-    SearchMasterDefaultsComponent
+    SearchMasterDefaultsComponent,
+    MapToIterable,
   ],
   imports: [
     BrowserModule,
@@ -26,11 +31,12 @@ import {environment} from '../environments/environment.prod';
     AppRoutingModule,
     LayoutModule,
     MaterialDesignModule,
+    HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects])
   ],
-  providers: [],
+  providers: [MasterDefaultsService, ProfilesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

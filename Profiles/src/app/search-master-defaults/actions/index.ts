@@ -1,16 +1,39 @@
-import { Action } from '@ngrx/store';
+import {Action} from '@ngrx/store';
+import {MasterDefault} from '../models/master-defaults';
 
-export enum SearchMasterActionTypes {
-  SearchMasterDefaultsIsShown = '[Search Master Defaults] Is Shown',
-  SearchMasterDefaultsIsHidden = '[Search Master Defaults] Is Hidden',
+export enum SearchActionTypes {
+  IsShown = '[Search Master Defaults] Is Shown',
+  IsHidden = '[Search Master Defaults] Is Hidden',
+  Loading = '[Search Master Defaults] Loading',
+  Loaded = '[Search Master Defaults] Loaded',
+  LoadFailed = '[Search Master Defaults] Load Failed'
 }
 
-export class ShowSearchMasterDefaults implements Action {
-  readonly type = SearchMasterActionTypes.SearchMasterDefaultsIsShown;
+export class Show implements Action {
+  readonly type = SearchActionTypes.IsShown;
 }
 
-export class HideSearchMasterDefaults implements Action {
-  readonly type = SearchMasterActionTypes.SearchMasterDefaultsIsHidden;
+export class Hide implements Action {
+  readonly type = SearchActionTypes.IsHidden;
 }
 
-export type SearchMasterDefaultsActionsUnion = ShowSearchMasterDefaults | HideSearchMasterDefaults;
+export class Loading implements Action {
+  readonly type = SearchActionTypes.Loading;
+}
+
+export class Loaded implements Action {
+  readonly type = SearchActionTypes.Loaded;
+
+  constructor(public payload: MasterDefault[]) {
+  }
+}
+
+export class LoadFailed implements Action {
+  readonly type = SearchActionTypes.LoadFailed;
+
+  constructor(public payload: MasterDefault) {
+
+  }
+}
+
+export type SearchActionsUnion = Show | Hide | Loading | Loaded | LoadFailed;

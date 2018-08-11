@@ -35,10 +35,48 @@
       </mat-nav-list>
     </mat-sidenav>
 
+
+    <ng-template #searchTemplate let-option="options">
+      <div>
+        <p>Title:{{option?.title}}</p>
+        <p>IsShown:{{option?.isShown}}</p>
+        <p>Other:{{option | json}}</p>
+      </div>
+    </ng-template>
+
+    <ng-template #defaultsEntities let-option="options">
+      <div>
+        <p>Other:{{option | json}}</p>
+        <div *ngFor="let defaults of option | mapToIterable">
+         <p>Key:{{defaults.key | json}}</p>
+          <p>Key:{{defaults.val | json}}</p>
+        </div>
+      </div>
+    </ng-template>
+
+
+
     <mat-sidenav-content>
-      {{showMasterDefaults$ | async}}
-      {{showProfiles$ | async}}
-      <h1>Working</h1>
+      <h1>MASTER DEFAULTS</h1>
+      <ng-container [ngTemplateOutlet]="searchTemplate" [ngTemplateOutletContext]="{options: showMasterDefaults$ | async}"></ng-container>
+      <div>
+        {{showMasterDefaults$ | async}}
+      </div>
+
+      <h1>Defaults:</h1>
+      <ng-container [ngTemplateOutlet]="defaultsEntities" [ngTemplateOutletContext]="{options: masterDefaultsEntities$ | async}"></ng-container>
+
+
+      <h1>SEARCH PROFILES</h1>
+      <ng-container [ngTemplateOutlet]="searchTemplate" [ngTemplateOutletContext]="{options: showProfiles$ | async}"></ng-container>
+      <div>
+        {{showProfiles$ | async}}
+      </div>
+
+      <h1>Defaults:</h1>
+      <ng-container [ngTemplateOutlet]="defaultsEntities" [ngTemplateOutletContext]="{options: profileDefaultsEntities$ | async}"></ng-container>
+
+
       <p *ngFor="let content of fillerContent">{{content}}</p>
     </mat-sidenav-content>
   </mat-sidenav-container>
