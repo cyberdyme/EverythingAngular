@@ -34,11 +34,11 @@ export class AppComponent implements OnInit, OnDestroy {
        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
 
-  private showMasterDefaults$: Observable<any>;
-  private showProfiles$: Observable<any>;
+  public showMasterDefaults$: Observable<any>;
+  public showProfiles$: Observable<any>;
 
-  private masterDefaultsEntities$: Observable<Dictionary<MasterDefault>>;
-  private profileEntities$: Observable<Dictionary<Profile>>;
+  public masterDefaultsEntities$: Observable<Dictionary<MasterDefault>>;
+  public profileEntities$: Observable<Dictionary<Profile>>;
 
   constructor(private store: Store<fromRoot.State>, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
