@@ -74,7 +74,7 @@
       </div>
 
       <h1>Defaults:</h1>
-      <ng-container [ngTemplateOutlet]="defaultsEntities" [ngTemplateOutletContext]="{options: profileDefaultsEntities$ | async}"></ng-container>
+      <ng-container [ngTemplateOutlet]="defaultsEntities" [ngTemplateOutletContext]="{options: profileEntities$ | async}"></ng-container>
 
 
       <p *ngFor="let content of fillerContent">{{content}}</p>

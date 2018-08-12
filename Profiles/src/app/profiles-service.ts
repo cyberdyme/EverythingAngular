@@ -11,7 +11,7 @@ export class ProfilesService {
   }
 
   getSearchDtos(): Observable<Profile[]> {
-    return this.dataProvider.getSearchDtos('global').pipe(map<SearchDto[],
+    return this.dataProvider.getSearchDtos('client').pipe(map<SearchDto[],
       Profile[]>(x => {
       const items: Profile[] = [];
       x.forEach(y => {

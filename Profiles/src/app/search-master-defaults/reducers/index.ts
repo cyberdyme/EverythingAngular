@@ -37,8 +37,7 @@ export function reducer(
     case SearchActionTypes.IsHidden:
       return {
         ...state,
-        isShown: false,
-        title: 'hiding'
+        isShown: false
       };
     case SearchActionTypes.Loading:
       return {
@@ -48,8 +47,7 @@ export function reducer(
     case SearchActionTypes.Loaded:
       return adapter.addMany(action.payload,  {
         ...state,
-        isShown: false,
-        title: 'hiding'
+        isShown: false
       });
     default:
       return state;

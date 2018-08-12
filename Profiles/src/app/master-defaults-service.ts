@@ -8,7 +8,6 @@ import {map} from 'rxjs/operators';
 @Injectable()
 export class MasterDefaultsService {
   constructor(private dataProvider: DataProviderService) {
-
   }
 
   getSearchDtos(): Observable<MasterDefault[]> {

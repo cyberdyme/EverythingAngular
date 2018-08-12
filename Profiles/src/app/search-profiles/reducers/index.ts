@@ -18,7 +18,7 @@ export const adapter: EntityAdapter<Profile> =
 const initialState: State = adapter.getInitialState({
   selectedDefaultId: null,
   isShown: true,
-  title: 'Global Defaults',
+  title: 'Profile Defaults',
   isLoading: false
 });
 
@@ -37,7 +37,6 @@ export function reducer(
       return {
         ...state,
         isShown: false,
-        title: 'hiding'
       };
     case SearchActionTypes.Loading:
       return {
@@ -47,8 +46,7 @@ export function reducer(
     case SearchActionTypes.Loaded:
       return adapter.addMany(action.payload, {
         ...state,
-        isShown: false,
-        title: 'hiding'
+        isShown: false
       });
     default:
       return state;
