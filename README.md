@@ -1,3 +1,5 @@
+{"questionToAsk":{"equationWithoutAnswer":"4 + -10 = ?","rank":"Beginner","timeToAnswer":30},"currentStatus":{"rankQuestionNumber":1,"isCompleted":false,"isErrored":false,"message":null}}
+
 # EverythingAngular
 
 using System;
