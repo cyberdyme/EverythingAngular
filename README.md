@@ -1,5 +1,7 @@
 {"questionToAsk":{"equationWithoutAnswer":"4 + -10 = ?","rank":"Beginner","timeToAnswer":30},"currentStatus":{"rankQuestionNumber":1,"isCompleted":false,"isErrored":false,"message":null}}
 
+{"AssociatedExercise":{"QuestionToAsk":{"EquationWithoutAnswer":"9 + -3 = ?","Rank":0,"QuestionNumberWithinCurrentRank":1,"TimeToAnswer":30},"CurrentStatus":null},"EquationWithAnswer":"9 + -3 = 6"}
+
 # EverythingAngular
 
 using System;
