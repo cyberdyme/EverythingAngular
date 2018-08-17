@@ -1,0 +1,8 @@
+<mat-toolbar color="primary" class="main-toolbar">
+  <button mat-raised-button (click)="this.showSideNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="navbar-text">
+    <ng-content select=".mainToolBarTitle"></ng-content>
+  </div>
+</mat-toolbar>

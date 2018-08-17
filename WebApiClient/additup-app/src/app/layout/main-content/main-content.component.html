@@ -1,0 +1,13 @@
+<mat-tab-group #tabGroup>
+  <mat-tab class="contentTabPage" label="Dashboard">
+    <div class="app-content">
+      <app-dashboard (showGameItem)="this.showGameItem($event)"></app-dashboard>
+    </div>
+  </mat-tab>
+
+  <mat-tab class="contentTabPage" label="Add It Up" *ngIf="showAddItUp">
+    <div class="app-content">
+      <app-add-it-up></app-add-it-up>
+    </div>
+  </mat-tab>
+</mat-tab-group>
