@@ -1,8 +1,6 @@
 .game-card {
-  width: 108px;
   height: 96px;
   margin-bottom: 50px;
-  display: block;
 }
 
 .game-card-enabled:hover {
@@ -13,9 +11,10 @@
   background-color: gray;
 }
 
-.game-icon {
+.game-iconX {
   padding-left: 32px;
   align-content: center;
   width: 32px;
   height: 32px;
 }
+
