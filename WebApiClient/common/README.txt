@@ -8,3 +8,14 @@ npm i -D jasmine-ts
 
 To run test:
 "test": "ts-node node_modules/jasmine/bin/jasmine"
+
+
+
+##consumer
+tsc somefile.ts
+node somefile.js
+
+##run from consumer
+npm link ../AddItUpTypescriptLib
+
+
